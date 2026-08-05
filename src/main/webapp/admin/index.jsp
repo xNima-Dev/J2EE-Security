@@ -1,16 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: Achintha
-  Date: 8/3/2026
-  Time: 9:34 AM
+  Date: 6/19/2025
+  Time: 12:27 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>User</title>
+    <title>Admin | Home</title>
 </head>
 <body>
-<h1>User Index</h1>
+    <h1>This is Admin Home</h1>
+    <a href="${pageContext.request.contextPath}/logout">Logout</a>
 </body>
 </html>

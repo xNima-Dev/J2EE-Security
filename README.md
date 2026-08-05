@@ -17,9 +17,9 @@ A simple Java Enterprise Edition (J2EE) web application demonstrating how to imp
 
 ## Project Structure
 
-- `lk.jiat.web.filter.AuthenticationFilter`: Validates if a user session exists before accessing secured routes.
-- `lk.jiat.web.filter.AdminAuthorizationFilter`: Checks if the authenticated user has the `ADMIN` role before allowing access to `/admin/*` routes.
-- `lk.jiat.web.servlet.LoginServlet`: Authenticates users and sets up the session and roles.
+- `lk.jiat.filter.lk.jiat.web.AuthenticationFilter`: Validates if a user session exists before accessing secured routes.
+- `lk.jiat.filter.lk.jiat.web.AdminAuthorizationFilter`: Checks if the authenticated user has the `ADMIN` role before allowing access to `/admin/*` routes.
+- `lk.jiat.servlet.lk.jiat.web.LoginServlet`: Authenticates users and sets up the session and roles.
 - `src/main/webapp/`: Contains JSP files (Login, Home, Admin Home) and `web.xml`.
 
 ## Setup & Run
