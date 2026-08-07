@@ -1,45 +1,78 @@
-# J2EE Security Example
+# 🛡️ J2EE Security Example
 
-A simple Java Enterprise Edition (J2EE) web application demonstrating how to implement **Authentication** and **Role-Based Authorization** using Servlet Filters and HTTP Sessions.
+![Java](https://img.shields.io/badge/Java-22-orange.svg)
+![Jakarta EE](https://img.shields.io/badge/Jakarta%20EE-10-blue.svg)
+![Maven](https://img.shields.io/badge/Maven-Build-success.svg)
+![Tomcat](https://img.shields.io/badge/Apache%20Tomcat-10+-yellow.svg)
 
-## Features
+A clean, highly educational **Java Enterprise Edition (J2EE)** web application designed to demonstrate the core concepts of **Authentication** and **Role-Based Authorization** from scratch, utilizing Servlet Filters and HTTP Sessions without relying on heavy external frameworks.
 
-- **Authentication:** Restricts access to secured pages unless the user is logged in. Implemented using `AuthenticationFilter`.
-- **Role-Based Authorization:** Grants access to specific resources based on the user's role (e.g., `ADMIN` or `USER`). Implemented using `AdminAuthorizationFilter`.
-- **Session Management:** Utilizes `HttpSession` to keep track of logged-in users and their roles.
-- **Login System:** Simple Servlet-based login mechanism demonstrating session creation and role assignment.
+## ✨ Key Features
 
-## Tech Stack
+- **🔒 Robust Authentication:** Secures private routes by ensuring that only authenticated users with a valid session can access protected resources. Implemented cleanly using an `AuthenticationFilter`.
+- **🔑 Role-Based Authorization:** Restricts resource access depending on user privileges (e.g., `ADMIN` vs `USER`). Only administrators can access `/admin/*` routes via the `AdminAuthorizationFilter`.
+- **🛠️ Session Management:** Leverages built-in `HttpSession` mechanisms to securely maintain user state and roles across multiple requests.
+- **🚪 Minimalist Login System:** A streamlined, Servlet-based authentication system showcasing secure session initialization and role assignment.
 
-- Java (JDK 22)
-- Jakarta EE 10 (Servlets, Filters, JSP)
-- Maven
+## 💻 Tech Stack
 
-## Project Structure
+- **Language:** Java (JDK 22)
+- **Framework:** Jakarta EE 10 (Servlets, Filters, JSP)
+- **Build Tool:** Maven
+- **Server:** Apache Tomcat 10+ (Recommended for Jakarta EE 10 compatibility)
 
-- `lk.jiat.filter.lk.jiat.web.AuthenticationFilter`: Validates if a user session exists before accessing secured routes.
-- `lk.jiat.filter.lk.jiat.web.AdminAuthorizationFilter`: Checks if the authenticated user has the `ADMIN` role before allowing access to `/admin/*` routes.
-- `lk.jiat.servlet.lk.jiat.web.LoginServlet`: Authenticates users and sets up the session and roles.
-- `src/main/webapp/`: Contains JSP files (Login, Home, Admin Home) and `web.xml`.
+## 📂 Project Structure
 
-## Setup & Run
+```text
+├── src/main/java/lk/jiat/
+│   ├── filter/
+│   │   ├── AuthenticationFilter.java     # Validates active user sessions
+│   │   └── AdminAuthorizationFilter.java # Checks for 'ADMIN' role privileges
+│   └── servlet/
+│       └── LoginServlet.java             # Handles authentication & session setup
+└── src/main/webapp/                      # Frontend views (JSPs) & web.xml
+```
 
-1. Clone the repository.
-2. Open the project in your favorite IDE (IntelliJ IDEA, Eclipse, etc.).
-3. Configure a local web server such as **Apache Tomcat (version 10+)** because this project uses Jakarta EE 10.
-4. Build the project using Maven:
+## 🚀 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing.
+
+### Prerequisites
+
+- **Java Development Kit (JDK) 22** or higher.
+- **Apache Maven** installed.
+- **Apache Tomcat 10** or higher (required for Jakarta namespace).
+- An IDE of your choice (IntelliJ IDEA, Eclipse, VS Code).
+
+### Installation & Deployment
+
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repository-url>
+   cd J2EE-Security
+   ```
+
+2. **Build the project using Maven:**
    ```bash
    mvn clean install
    ```
-5. Deploy the generated `.war` file to your Tomcat server.
-6. Access the application at `http://localhost:8080/J2EE-Security_war_exploded/` (or the equivalent context path configured).
 
-## Default Credentials
+3. **Deploy to Tomcat:**
+   - Copy the generated `.war` file from the `target/` directory to your Tomcat `webapps/` directory, OR
+   - Configure your IDE to deploy the exploded WAR directly to a local Tomcat server.
 
-For testing purposes, the `LoginServlet` has hardcoded credentials:
-- **User Role:** Username: `user` | Password: `1234` (Redirects to User Home)
-- **Admin Role:** Username: `admin` | Password: `1234` (Redirects to Admin Home)
+4. **Access the application:**
+   Navigate to `http://localhost:8080/J2EE-Security_war_exploded/` (Note: Ensure the context path matches your deployment configuration).
 
-## Learning Purpose
+## 🧪 Testing the Application
 
-This project is intended for educational purposes to understand the core concepts of J2EE security using Filters and Servlets, without relying on external frameworks like Spring Security.
+For demonstration purposes, the application includes a mocked authentication mechanism with hardcoded credentials in the `LoginServlet`.
+
+| Role | Username | Password | Redirect Target |
+| :--- | :--- | :--- | :--- |
+| **USER** | `user` | `1234` | User Dashboard (`/home.jsp`) |
+| **ADMIN** | `admin` | `1234` | Admin Dashboard (`/admin/home.jsp`) |
+
+## 🎓 Learning Objectives
+
+This project is meticulously crafted for educational purposes. By exploring this codebase, developers will deeply understand the underlying mechanics of web security—specifically how HTTP requests can be intercepted and validated using Filters—providing a strong foundation before transitioning to comprehensive security frameworks like Spring Security.
