@@ -3,7 +3,7 @@
 ![Java](https://img.shields.io/badge/Java-22-orange.svg)
 ![Jakarta EE](https://img.shields.io/badge/Jakarta%20EE-10-blue.svg)
 ![Maven](https://img.shields.io/badge/Maven-Build-success.svg)
-![Tomcat](https://img.shields.io/badge/Apache%20Tomcat-10+-yellow.svg)
+![GlassFish](https://img.shields.io/badge/Apache%20Tomcat-7+-yellow.svg)
 
 A clean, highly educational **Java Enterprise Edition (J2EE)** web application designed to demonstrate the core concepts of **Authentication** and **Role-Based Authorization** from scratch, utilizing Servlet Filters and HTTP Sessions without relying on heavy external frameworks.
 
@@ -19,7 +19,7 @@ A clean, highly educational **Java Enterprise Edition (J2EE)** web application d
 - **Language:** Java (JDK 22)
 - **Framework:** Jakarta EE 10 (Servlets, Filters, JSP)
 - **Build Tool:** Maven
-- **Server:** Apache Tomcat 10+ (Recommended for Jakarta EE 10 compatibility)
+- **Server:** GlassFish 7+ (Recommended for Jakarta EE 10 compatibility)
 
 ## 📂 Project Structure
 
@@ -48,7 +48,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/xNima-Dev/J2EE-Security.git
    cd J2EE-Security
    ```
 
