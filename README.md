@@ -3,7 +3,7 @@
 ![Java](https://img.shields.io/badge/Java-22-orange.svg)
 ![Jakarta EE](https://img.shields.io/badge/Jakarta%20EE-10-blue.svg)
 ![Maven](https://img.shields.io/badge/Maven-Build-success.svg)
-![GlassFish](https://img.shields.io/badge/Apache%20Tomcat-7+-yellow.svg)
+![GlassFish](https://img.shields.io/badge/GlassFish-7+-yellow.svg)
 
 A clean, highly educational **Java Enterprise Edition (J2EE)** web application designed to demonstrate the core concepts of **Authentication** and **Role-Based Authorization** from scratch, utilizing Servlet Filters and HTTP Sessions without relying on heavy external frameworks.
 
