@@ -3,6 +3,7 @@ package lk.jiat.web.servlet;
 import jakarta.annotation.security.DeclareRoles;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.HttpConstraint;
+import jakarta.servlet.annotation.HttpMethodConstraint;
 import jakarta.servlet.annotation.ServletSecurity;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,15 +13,18 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@DeclareRoles({"ADMIN","USER"})
-@ServletSecurity(@HttpConstraint(rolesAllowed = "ADMIN"))
 @WebServlet("/admin/profile")
-public class Admin extends HttpServlet {
+//@DeclareRoles({"ADMIN","USER"}) // Define Roles
+@ServletSecurity(value = @HttpConstraint(
+        rolesAllowed = {"ADMIN","USER"}
+), httpMethodConstraints = {
+        @HttpMethodConstraint(value = "GET", rolesAllowed = {"ADMIN","USER"}),
+        @HttpMethodConstraint(value = "POST", rolesAllowed = "ADMIN"),
+        @HttpMethodConstraint(value = "DELETE", emptyRoleSemantic = ServletSecurity.EmptyRoleSemantic.DENY)
+})
+public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        request.getSession();
-        out.write("This is Admin Profile");
+        response.getWriter().write("Admin Profile Servlet");
     }
 }
